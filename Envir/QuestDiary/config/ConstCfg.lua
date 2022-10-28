@@ -11,7 +11,9 @@ ConstCfg = {
         maxbagnum       = 7,        --背包最大数量
     },
 
-
+    attr = {
+1
+    },
 
     --设置人物，怪物，base字段
     gbase = {
