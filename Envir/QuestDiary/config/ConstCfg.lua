@@ -80,7 +80,8 @@ ConstCfg = {
 
     color = {
         red = "#ff0000",
-        white = "ffffff",
+        white = "#ffffff",
+        yellow = "#f6d3b7",
     },
 
     --设置人物，怪物，base字段

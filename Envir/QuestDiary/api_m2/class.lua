@@ -1,10 +1,5 @@
-----lib996:sendmsg(actor, 1)
-----
-----lib996:playeffect()
---
---
---print(os.date("*t").day)
-local aaa = '{"Msg":"<font color=' .. '#ff0000' .. '>' .. "abc" ..'</font>","Type":9}',
 
-
-print('{"Msg":"<font color=' .. '#ff0000' .. '>' .. "abc" ..'</font>","Type":9}')
+---@class title
+---@field name ³ÆºÅÃû³Æ
+---@field effectid ÌØÐ§id
+title = {}

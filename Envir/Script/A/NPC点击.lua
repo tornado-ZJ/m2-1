@@ -7,17 +7,17 @@
 
 lib996:include("Script/serialize.lua")
 
-function npcclick(actor, npcid)
+function npcclick_A(actor, npcid)
+    --print("npcid",npcid)
+
     --Ò»¼üÂúÑª
     if npcid == 1 then
         yijianmanxue(actor)
     elseif npcid == 2 then
         kuangbaozhili(actor)
-    elseif npcid == 50 then
-
     elseif npcid == 100 then
         ceshi(actor)
     end
 end
 
-GameEvent.add(EventCfg.onClicknpc, npcclick, "µã»÷npc")
+GameEvent.add(EventCfg.onClicknpc, npcclick_A, "µã»÷npc")

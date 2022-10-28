@@ -7,6 +7,7 @@ local cfg_kuangbao = {
             [2] = 50,
         },
         effectid = 30000,
+        mapid = "24a",
         diaoluo = {
             [1] = ConstCfg.money.rmb,
             [2] = 25,
@@ -18,6 +19,7 @@ local cfg_kuangbao = {
             [1] = ConstCfg.money.rmb,
             [2] = 50,
         },
+        mapid = "24b",
         effectid = 30001,
         diaoluo = {
             [1] = ConstCfg.money.rmb,
@@ -30,6 +32,7 @@ local cfg_kuangbao = {
             [1] = ConstCfg.money.rmb,
             [2] = 50,
         },
+        mapid = "24c",
         effectid = 30002,
         diaoluo = {
             [1] = ConstCfg.money.rmb,
@@ -120,8 +123,18 @@ function kaiqikuangbao(actor, cur_chenghao)
     SyncResponse(actor)
 end
 
+function jinruditu(actor, index)
+    index = tonumber(index)
+    print(cfg_kuangbao[index].name)
+    if not lib996:checktitle(actor, cfg_kuangbao[index].name) then
+        MsgUtil.ownbycolor(actor, "未开启" .. cfg_kuangbao[index].name .. "，开启后可进入", ConstCfg.color.white)
+        return
+    end
+    lib996:map(actor, cfg_kuangbao[index].mapid)
+    MsgUtil.ownbycolor(actor, "进入" .. cfg_kuangbao[index].name .. "地图成功", ConstCfg.color.yellow)
+end
+
 GameEvent.add(EventCfg.onLogin, function(actor)
-    print(1)
     for i, v in ipairs(cfg_kuangbao) do
         if lib996:checktitle(actor, v.name) then
             lib996:playeffect(actor, v.effectid, 0,0,0,0,0)
@@ -129,3 +142,23 @@ GameEvent.add(EventCfg.onLogin, function(actor)
         end
     end
 end, "狂暴特效")
+GameEvent.add(EventCfg.onkillplay, function(actor, play)
+    for i, v in ipairs(cfg_kuangbao) do
+        if lib996:checktitle(play, v.name) then
+        --    被击杀的人有狂暴
+            --1称号降级
+            --2特效降级
+            --3actor奖励
+            if i == 1 then
+                Player.swapTitle(play, {name = v.name, effectid = v.effectid}, {})
+                MsgUtil.ownbycolor(play, "被击杀，" .. v.name .. "消失", ConstCfg.color.red)
+            else
+                Player.swapTitle(play, {name = v.name, effectid = v.effectid},
+                        {name = cfg_kuangbao[i - 1].name, effectid = cfg_kuangbao[i - 1].effectid})
+                MsgUtil.ownbycolor(play, "被击杀，狂暴降级为".. cfg_kuangbao[i - 1].name, ConstCfg.color.red)
+            end
+            MsgUtil.ownbycolor(actor, "击杀" .. v.name .."，奖励25RMB点", ConstCfg.color.white)
+            lib996:changemoney(actor, v.diaoluo[1], "+", v.diaoluo[2], "", true)
+        end
+    end
+end, "击杀狂暴")
