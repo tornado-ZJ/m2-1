@@ -7,5 +7,5 @@
 lib996:include("Script/serialize.lua")
 
 function ceshi(actor)
-
+    print(lib996:attr(actor, ConstCfg.attr.HP))
 end

@@ -378,3 +378,8 @@ function lib996:getname(actor) end
 ---@return table怪物对象列表
 function lib996:genmon(mapid,x,y,monname,range,count,color) end
 
+---获取角色属性
+---@param actor object玩家对象
+---@param attid int属性id
+---@return int属性值
+function lib996:attr(actor,attid) end
