@@ -32,7 +32,6 @@ local _,errinfo = pcall(function ()
     require_ex("Envir/QuestDiary/util/GameEvent")
     require_ex("Envir/QuestDiary/game/GM")
     require_ex("Envir/QuestDiary/game/ItemUse")
-    require_ex("Envir/QuestDiary/game/TitleChange")
 
     require_ex("Envir/Script/serialize")
     require_ex("Envir/Script/A/init")
@@ -58,7 +57,11 @@ end
 
 --登录
 function login(actor)
+    --头发光头
     lib996:setbaseinfo(actor, ConstCfg.sbase.hair, 0)
+--    登录事件派发
+    GameEvent.push(EventCfg.onLogin, actor)
+
 end
 
 --行会初始化
@@ -324,12 +327,6 @@ local money = {
     ryz                 = 9,     --荣誉值
     cent                = 11,   --充值点 1rmb = 1充值点
     rmb                 = 12,   --rmb
-    czje                = 20,   --充值金额
-    zscz                = 21,   --真实充值
-    mrcz                = 22,   --每日充值
-    baolv               = 23,   --爆率
-    beigong             = 24,   --倍攻
-    ddqg                = 25,   --刀刀切割
 }
 
 --货币改变触发
@@ -340,13 +337,6 @@ end
 function titlechangedex(actor, id)
     --print("称号改变",id)
 end
---for _,moneyidx in pairs(money) do
---    _G["moneychange"..moneyidx] = function (actor)
---        local curnum = lib996:querymoney(actor, moneyidx)
---        local name = lib996:getstditeminfo(moneyidx, 1)
---        print("货币【"..name.."】改变：", moneyidx, curnum)
---    end
---end
 
 function on_burst(attack,ack)    --暴击流程--attack是攻击者
     local burst = lib996:attr(attack,29)       --暴击概率

@@ -383,3 +383,6 @@ function lib996:genmon(mapid,x,y,monname,range,count,color) end
 ---@param attid int属性id
 ---@return int属性值
 function lib996:attr(actor,attid) end
+
+---刷新人物属性
+function lib996:recalcabilitys(actor) end

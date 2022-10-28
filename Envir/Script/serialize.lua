@@ -26,6 +26,7 @@ local ConstCfg = require_ex("Envir/QuestDiary/config/ConstCfg")
 local Bag = require_ex("Envir/Extension/UtilServer/Bag")
 local Item = require_ex("Envir/Extension/UtilServer/Item")
 local Player = require_ex("Envir/Extension/UtilServer/Player")
+local MsgUtil = require_ex("Envir/QuestDiary/util/MsgUtil")
 
 
 function serialize(obj)  --–Ú¡–ªØ

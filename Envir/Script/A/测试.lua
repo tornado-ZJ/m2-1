@@ -7,5 +7,11 @@
 lib996:include("Script/serialize.lua")
 
 function ceshi(actor)
-    print(lib996:attr(actor, ConstCfg.attr.HP))
+    --print("称号前",lib996:attr(actor, ConstCfg.attr.var_soul))
+    --lib996:confertitle(actor, "狂暴之王")
+    --lib996:deprivetitle(actor, "狂暴之神")
+    lib996:confertitle(actor, "狂暴之神")
+    --lib996:changestorage(actor,10)
+    --MsgUtil.ownbycolor(actor,"", ConstCfg.color.white)
+    --print(ConstCfg.money.rmb)
 end

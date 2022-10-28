@@ -13,6 +13,8 @@ function npcclick(actor, npcid)
         yijianmanxue(actor)
     elseif npcid == 2 then
         kuangbaozhili(actor)
+    elseif npcid == 50 then
+
     elseif npcid == 100 then
         ceshi(actor)
     end
