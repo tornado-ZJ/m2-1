@@ -386,3 +386,13 @@ function lib996:attr(actor,attid) end
 
 ---刷新人物属性
 function lib996:recalcabilitys(actor) end
+
+---发送屏幕滚动信息
+---@param actor object玩家对象
+---@param flag str0发送给自己1发送所有人物2发送行会3发送当前地图4组队
+---@param FColor int前景色
+---@param BColor int背景色
+---@param higjt int高度
+---@param show int滚动次数
+---@param msg str消息内容
+function lib996:sendmovemsg(actor,flag,FColor,BColor,higjt,show,msg) end

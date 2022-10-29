@@ -14,5 +14,6 @@ function ceshi(actor)
     --lib996:changestorage(actor,10)
     --MsgUtil.ownbycolor(actor,"", ConstCfg.color.white)
     --print(ConstCfg.money.rmb)
-    lib996:changehumnewvalue(actor, ConstCfg.attr.MIN_ATK, 10000, 1000)
+    --lib996:changehumnewvalue(actor, ConstCfg.attr.MIN_ATK, 10000, 1000)
+    lib996:changestorage(actor,count)
 end

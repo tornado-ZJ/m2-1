@@ -48,13 +48,6 @@ local cfg_kuangbao = {
     },
 }
 
-
-
-
-function getcfg_kuangbaozhili()
-    return cfg_kuangbao
-end
-
 function kuangbaozhili(actor)
     lib996:showformwithcontent(actor, "A/¿ñ±©", "")
 end

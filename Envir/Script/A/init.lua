@@ -7,5 +7,6 @@ lib996:include("Script/A/NPCµã»÷.lua")
 lib996:include("Script/A/Ò»¼üÂúÑª.lua")
 lib996:include("Script/A/²âÊÔ.lua")
 lib996:include("Script/A/¿ñ±©.lua")
+lib996:include("Script/A/É³¾è.lua")
 
 
